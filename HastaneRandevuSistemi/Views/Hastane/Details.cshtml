@@ -1,0 +1,25 @@
+﻿@model HastaneRandevuSistemi.Models.Hastane
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Hastane</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.HastaneAd)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.HastaneAd)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.HastaneID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
