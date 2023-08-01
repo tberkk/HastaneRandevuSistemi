@@ -1,0 +1,47 @@
+﻿@model HastaneRandevuSistemi.Models.Randevu
+
+@{
+    ViewData["Title"] = "RandevuEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>RandevuEkle</h1>
+
+<h4>Randevu</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="RandevuEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="RandevuGun" class="control-label"></label>
+                <select asp-for="RandevuGun" class="form-control" asp-items="ViewBag.gunlist"></select>
+                <span asp-validation-for="RandevuGun" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RandevuSaat" class="control-label"></label>
+                <select asp-for="RandevuSaat" class="form-control" asp-items="ViewBag.saatlist"></select>
+                <span asp-validation-for="RandevuSaat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoktorID" class="control-label"></label>
+                <select asp-for="DoktorID" class ="form-control" asp-items="ViewBag.dlist"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="PoliklinikID" class="control-label"></label>
+                <select asp-for="PoliklinikID" class ="form-control" asp-items="ViewBag.plist"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HastaneID" class="control-label"></label>
+                <select asp-for="HastaneID" class ="form-control" asp-items="ViewBag.hlist"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

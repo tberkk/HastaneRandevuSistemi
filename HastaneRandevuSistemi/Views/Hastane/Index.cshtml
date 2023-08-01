@@ -2,35 +2,34 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
+<h5>@TempData["msj"]</h5>
+<h5>@ViewBag.msj</h5>
+<h4>Hastaneler</h4>
+<table class="table table-striped">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.HastaneAd)
-            </th>
-            <th></th>
+            <th scope="col">#</th>
+            <th scope="col">Hastane Adı</th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.HastaneAd)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.HastaneID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.HastaneID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.HastaneID">Delete</a>
-            </td>
-        </tr>
-}
+        @{var i = 1;}
+        @foreach(var x in Model)
+        {
+            
+            <tr>
+                <th>@i</th>
+                @{i++;}
+                <td>@x.HastaneAd</td>
+                <td><a href="/Hastane/HastaneDuzenle/@x.HastaneID" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a></td>
+                <td><a href="/Hastane/HastaneSil/@x.HastaneID" class="btn btn-outline-danger"><i class="bi bi-x"></i></a></td>
+                <td><a href="/Hastane/PoliklinikGetir/@x.HastaneID" class="btn btn-secondary">Poliklinikler</a></td>
+                <td><a href="/Hastane/DoktorGetir/@x.HastaneID" class="btn btn-primary">Doktorlar</a></td>
+            </tr>
+        }
     </tbody>
 </table>
+
+<a href="/Hastane/HastaneEkle" class="btn btn-primary">Yeni Hastane Ekle</a>

@@ -1,0 +1,14 @@
+﻿@model HastaneRandevuSistemi.Models.Hastane
+
+@{
+    ViewData["Title"] = "Hastane Ekle";
+}
+
+<form asp-action="HastaneEkle">
+    <div class="input-group mb-3">
+        <input asp-for="HastaneAd" type="text" class="form-control" placeholder="Hastane Adı">
+        <div class="input-group-append">
+            <button class="btn btn-outline-primary" type="submit">Ekle</button>
+        </div>
+    </div>
+</form>

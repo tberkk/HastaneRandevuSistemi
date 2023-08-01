@@ -12,7 +12,7 @@ namespace HastaneRandevuSistemi.Models
 
         [ForeignKey("HastaneID")]
         public int? HastaneID { get; set; }
-        public Hastane Hastane { get; set; }
+        public Hastane? Hastane { get; set; }
 
 
         public ICollection<Doktor> DoktorList { get; } = new List<Doktor>();

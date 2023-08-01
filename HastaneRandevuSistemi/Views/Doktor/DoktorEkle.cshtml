@@ -1,0 +1,43 @@
+﻿@model HastaneRandevuSistemi.Models.Doktor
+
+@{
+    ViewData["Title"] = "DoktorEkle";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>DoktorEkle</h1>
+
+<h4>Doktor</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="DoktorEkle">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DoktorAd" class="control-label"></label>
+                <input asp-for="DoktorAd" class="form-control" />
+                <span asp-validation-for="DoktorAd" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DoktorSoyad" class="control-label"></label>
+                <input asp-for="DoktorSoyad" class="form-control" />
+                <span asp-validation-for="DoktorSoyad" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PoliklinikID" class="control-label"></label>
+                <select asp-for="PoliklinikID" class ="form-control" asp-items="ViewBag.plist"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HastaneID" class="control-label"></label>
+                <select asp-for="HastaneID" class ="form-control" asp-items="ViewBag.hlist"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

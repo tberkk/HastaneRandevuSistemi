@@ -1,0 +1,27 @@
+﻿@model List<Poliklinik>
+
+
+<h4>@ViewBag.data</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Poliklinik Adı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{var i = 1;}
+        @foreach (var x in Model)
+        {
+            <tr>
+                <th>@i</th>
+                @{i++;}
+                <td>@x.PoliklinikAd</td>
+                <td><a href="/Poliklinik/PoliklinikDuzenle/@x.PoliklinikID" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a></td>
+                <td><a href="/Poliklinik/PoliklinikSil/@x.PoliklinikID" class="btn btn-outline-danger"><i class="bi bi-x"></i></a></td>
+                <td><a href="/Poliklinik/DoktorGetir/@x.PoliklinikID" class="btn btn-primary">Doktorlar</a></td>
+                <td><a href="/Poliklinik/RandevuGetir/@x.PoliklinikID" class="btn btn-primary">Randevular</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

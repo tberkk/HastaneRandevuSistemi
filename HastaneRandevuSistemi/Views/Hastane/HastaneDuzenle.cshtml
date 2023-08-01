@@ -1,25 +1,26 @@
 ﻿@model HastaneRandevuSistemi.Models.Hastane
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "HastaneDuzenle";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Create</h1>
+<h1>HastaneDuzenle</h1>
 
 <h4>Hastane</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="Create">
+        <form asp-action="HastaneDuzenle">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="HastaneID" />
             <div class="form-group">
                 <label asp-for="HastaneAd" class="control-label"></label>
                 <input asp-for="HastaneAd" class="form-control" />
                 <span asp-validation-for="HastaneAd" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Save" class="btn btn-primary" />
             </div>
         </form>
     </div>
@@ -29,3 +30,6 @@
     <a asp-action="Index">Back to List</a>
 </div>
 
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

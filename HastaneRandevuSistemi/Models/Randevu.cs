@@ -13,16 +13,16 @@ namespace HastaneRandevuSistemi.Models
 
         [ForeignKey("DoktorID")]
         public int? DoktorID { get; set; }
-        public Doktor Doktor { get; set; }
+        public Doktor? Doktor { get; set; }
 
 
         [ForeignKey("PoliklinikID")]
         public int? PoliklinikID { get; set; }
-        public Poliklinik Poliklinik { get; set; }
+        public Poliklinik? Poliklinik { get; set; }
 
 
         [ForeignKey("HastaneID")]
         public int? HastaneID { get; set; }
-        public Hastane Hastane { get; set; }
+        public Hastane? Hastane { get; set; }
     }
 }
