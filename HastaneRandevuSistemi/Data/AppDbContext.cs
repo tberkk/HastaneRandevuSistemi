@@ -9,6 +9,7 @@ namespace HastaneRandevuSistemi.Data
         public DbSet<Poliklinik> PoliklinikTable { get; set; }
         public DbSet<Doktor> DoktorTable { get; set; }
         public DbSet<Randevu> RandevuTable { get; set; }
+        public DbSet<User> UserTable { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
