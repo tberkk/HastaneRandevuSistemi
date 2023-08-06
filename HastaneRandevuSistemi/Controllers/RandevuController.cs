@@ -8,7 +8,12 @@ namespace HastaneRandevuSistemi.Controllers
 {
     public class RandevuController : Controller
     {
-        AppDbContext c = new AppDbContext();
+        private readonly AppDbContext c;
+        public RandevuController(AppDbContext context)
+        {
+            c = context;
+        }
+        
         public IActionResult Index()
         {
             var list = c.RandevuTable.Include(x => x.Hastane).Include(x => x.Poliklinik).Include(x => x.Doktor).ToList();

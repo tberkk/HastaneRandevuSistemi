@@ -8,7 +8,11 @@ namespace HastaneRandevuSistemi.Controllers
 {
     public class PoliklinikController : Controller
     {
-        AppDbContext c = new AppDbContext();
+        private readonly AppDbContext c;
+        public PoliklinikController(AppDbContext context)
+        {
+            c = context;
+        }
         public IActionResult Index()
         {
             var list = c.PoliklinikTable.ToList();

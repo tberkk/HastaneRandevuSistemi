@@ -8,7 +8,11 @@ namespace HastaneRandevuSistemi.Controllers
 {
     public class DoktorController : Controller
     {
-        AppDbContext c = new AppDbContext();
+        private readonly AppDbContext c;
+        public DoktorController(AppDbContext context)
+        {
+            c = context;
+        }
         public IActionResult Index()
         {
             var list = c.DoktorTable.ToList();

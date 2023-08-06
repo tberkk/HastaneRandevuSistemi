@@ -8,7 +8,11 @@ namespace HastaneRandevuSistemi.Controllers
 {
     public class HastaneController : Controller
     {
-        AppDbContext c = new AppDbContext();
+        private readonly AppDbContext c;
+        public HastaneController(AppDbContext context)
+        {
+            c = context;
+        }
         public IActionResult Index()
         {
             var list = c.HastaneTable.ToList();
