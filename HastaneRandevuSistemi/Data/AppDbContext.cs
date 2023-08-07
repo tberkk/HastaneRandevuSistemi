@@ -1,9 +1,10 @@
 ﻿using HastaneRandevuSistemi.Models;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace HastaneRandevuSistemi.Data
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext : IdentityDbContext
     {
         public AppDbContext(DbContextOptions options) : base(options) { }
         public DbSet<Hastane> HastaneTable { get; set; }

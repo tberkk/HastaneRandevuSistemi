@@ -1,5 +1,6 @@
 ﻿using HastaneRandevuSistemi.Data;
 using HastaneRandevuSistemi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Runtime.CompilerServices;
@@ -13,12 +14,15 @@ namespace HastaneRandevuSistemi.Controllers
         {
             c = context;
         }
+
+        [Authorize(Roles ="Admin")]
         public IActionResult Index()
         {
             var list = c.HastaneTable.ToList();
             return View(list);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult PoliklinikGetir(int id)
         {
             var poli = c.PoliklinikTable.Where(x => x.HastaneID == id).ToList();
@@ -26,6 +30,7 @@ namespace HastaneRandevuSistemi.Controllers
             return View(poli);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult DoktorGetir(int id)
         {
             var doks = c.DoktorTable.Include(x =>x.Poliklinik).Where(x => x.HastaneID == id).ToList();
@@ -33,12 +38,14 @@ namespace HastaneRandevuSistemi.Controllers
             return View(doks);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult HastaneEkle()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult HastaneEkle(Hastane hastane)
         {
@@ -52,6 +59,7 @@ namespace HastaneRandevuSistemi.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult HastaneDuzenle(int? id)
         {
             if(id is null)
@@ -68,6 +76,7 @@ namespace HastaneRandevuSistemi.Controllers
             return View(has);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult HastaneDuzenle(int? id,Hastane hastane)
         {
@@ -97,6 +106,7 @@ namespace HastaneRandevuSistemi.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult HastaneSil(int? id)
         {
             if(id == null)

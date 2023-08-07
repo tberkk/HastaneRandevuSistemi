@@ -1,8 +1,34 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model IEnumerable<HastaneRandevuSistemi.Models.Hastane>
+
+@{
+    ViewData["Title"] = "Index";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+<h5>@TempData["msj"]</h5>
+<h5>@ViewBag.msj</h5>
+<h4>Hastaneler</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Hastane Adı</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 1;
+        }
+        @foreach (var x in Model)
+        {
+
+            <tr>
+                <th>@i</th>
+                @{
+                    i++;
+                }
+                <td>@x.HastaneAd</td>
+                <td><a href="/Home/PoliklinikGetir/@x.HastaneID" class="btn btn-secondary">Poliklinikler</a></td>
+            </tr>
+        }
+    </tbody>
+</table>

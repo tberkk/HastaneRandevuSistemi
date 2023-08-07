@@ -1,5 +1,6 @@
 ﻿using HastaneRandevuSistemi.Data;
 using HastaneRandevuSistemi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,12 +14,16 @@ namespace HastaneRandevuSistemi.Controllers
         {
             c = context;
         }
+
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var list = c.DoktorTable.ToList();
             return View(list);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult RandevuGetir(int id)
         {
             var list = c.RandevuTable.Include(x => x.Doktor).Where(x => x.DoktorID == id).ToList();
@@ -26,6 +31,7 @@ namespace HastaneRandevuSistemi.Controllers
             return View(list);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult DoktorEkle()
         {
@@ -45,6 +51,8 @@ namespace HastaneRandevuSistemi.Controllers
             ViewBag.hlist = hlist;
             return View();
         }
+
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DoktorEkle(Doktor doktor)
         {
@@ -58,6 +66,7 @@ namespace HastaneRandevuSistemi.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult DoktorSil(int? id)
         {
             if (id == null)
@@ -85,6 +94,7 @@ namespace HastaneRandevuSistemi.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult DoktorDuzenle(int? id)
         {
             if (id is null)
@@ -101,6 +111,7 @@ namespace HastaneRandevuSistemi.Controllers
             return View(dok);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult DoktorDuzenle(int? id, Doktor doktor)
         {

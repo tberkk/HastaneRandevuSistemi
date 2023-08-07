@@ -1,5 +1,6 @@
 ﻿using HastaneRandevuSistemi.Data;
 using HastaneRandevuSistemi.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -13,12 +14,16 @@ namespace HastaneRandevuSistemi.Controllers
         {
             c = context;
         }
+
+
+        [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
             var list = c.PoliklinikTable.ToList();
             return View(list);
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult DoktorGetir(int id)
         {
 
@@ -27,6 +32,8 @@ namespace HastaneRandevuSistemi.Controllers
             return View(list);
 
         }
+
+        [Authorize(Roles = "Admin")]
         public IActionResult RandevuGetir(int id)
         {
             var list = c.RandevuTable.Include(x => x.Doktor).Where(x => x.PoliklinikID == id).ToList();
@@ -34,6 +41,7 @@ namespace HastaneRandevuSistemi.Controllers
             return View(list);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpGet]
         public IActionResult PoliklinikEkle()
         {
@@ -47,6 +55,7 @@ namespace HastaneRandevuSistemi.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult PoliklinikEkle(Poliklinik poliklinik)
         {
@@ -59,6 +68,7 @@ namespace HastaneRandevuSistemi.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult PoliklinikSil(int? id)
         {
             if (id == null)
@@ -86,6 +96,7 @@ namespace HastaneRandevuSistemi.Controllers
             }
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult PoliklinikDuzenle(int? id)
         {
             if (id is null)
@@ -102,6 +113,7 @@ namespace HastaneRandevuSistemi.Controllers
             return View(pol);
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult PoliklinikDuzenle(int? id, Poliklinik poliklinik)
         {
