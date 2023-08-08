@@ -1,17 +1,20 @@
 ﻿@model IEnumerable<HastaneRandevuSistemi.Models.Hastane>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Hastaneler";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
 }
 
 <h5>@TempData["msj"]</h5>
 <h5>@ViewBag.msj</h5>
-<h4>Hastaneler</h4>
+<h4>@Localizer["Hastaneler"]</h4>
 <table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Hastane Adı</th>
+            <th scope="col">@Localizer["Hastane Adı"]</th>
         </tr>
     </thead>
     <tbody>
@@ -27,7 +30,7 @@
                     i++;
                 }
                 <td>@x.HastaneAd</td>
-                <td><a href="/Home/PoliklinikGetir/@x.HastaneID" class="btn btn-secondary">Poliklinikler</a></td>
+                <td><a href="/Home/PoliklinikGetir/@x.HastaneID" class="btn btn-secondary">@Localizer["Poliklinikler"]</a></td>
             </tr>
         }
     </tbody>

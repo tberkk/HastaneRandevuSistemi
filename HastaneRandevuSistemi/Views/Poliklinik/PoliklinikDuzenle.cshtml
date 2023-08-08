@@ -1,11 +1,13 @@
 ﻿@model HastaneRandevuSistemi.Models.Poliklinik
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "PoliklinikDuzenle";
+    ViewData["Title"] = Localizer["Poliklinik Düzenle"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h4>Poliklinik</h4>
+<h4>@Localizer["Poliklinik"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">

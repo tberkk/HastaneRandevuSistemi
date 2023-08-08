@@ -10,7 +10,7 @@ namespace HastaneRandevuSistemi.Models
         public string RandevuGun { get; set; }
         public string RandevuSaat { get; set; }
 
-        //public string? UserID { get; set; }
+        public string? UserID { get; set; }
 
 
         [ForeignKey("DoktorID")]

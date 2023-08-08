@@ -1,0 +1,41 @@
+﻿@model List<Randevu>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Randevularım";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
+
+<h4>@Localizer["Randevularım"]</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Localizer["Gün"]</th>
+            <th scope="col">@Localizer["Saat"]</th>
+            <th scope="col">@Localizer["Doktor"]</th>
+            <th scope="col">@Localizer["Poliklinik"]</th>
+            <th scope="col">@Localizer["Hastane"]</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            var i = 1;
+        }
+        @foreach (var x in Model)
+        {
+            <tr>
+                <th>@i</th>
+                @{
+                    i++;
+                }
+                <td>@x.RandevuGun</td>
+                <td>@x.RandevuSaat</td>
+                <td>@x.Doktor.DoktorAd @x.Doktor.DoktorSoyad</td>
+                <td>@x.Poliklinik.PoliklinikAd</td>
+                <td>@x.Hastane.HastaneAd</td>
+                <td><a href="/Home/RandevuSil/@x.RandevuID" class="btn btn-outline-danger"><i class="bi bi-x"></i></a></td>
+            </tr>
+        }
+    </tbody>
+</table>

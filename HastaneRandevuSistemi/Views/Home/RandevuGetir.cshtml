@@ -1,14 +1,19 @@
 ﻿@model List<Randevu>
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Randevular";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
 
 <h4>@ViewBag.data</h4>
 <table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Gün</th>
-            <th scope="col">Saat</th>
-            <th scope="col">Doktor</th>
+            <th scope="col">@Localizer["Gün"]</th>
+            <th scope="col">@Localizer["Saat"]</th>
+            <th scope="col">@Localizer["Doktor"]</th>
         </tr>
     </thead>
     <tbody>
@@ -25,7 +30,7 @@
                 <td>@x.RandevuGun</td>
                 <td>@x.RandevuSaat</td>
                 <td>@x.Doktor.DoktorAd @x.Doktor.DoktorSoyad</td>
-                <td><a href="#" class="btn btn-outline-primary ">+</a></td>
+                <td><a href="/Home/RandevuAl/@x.RandevuID" class="btn btn-outline-primary ">+</a></td>
             </tr>
         }
     </tbody>

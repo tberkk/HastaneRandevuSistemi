@@ -1,13 +1,15 @@
 ﻿@model HastaneRandevuSistemi.Models.Hastane
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "HastaneDuzenle";
+    ViewData["Title"] = Localizer["Hastane Düzenle"];
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>HastaneDuzenle</h1>
+<h1>@Localizer["Hastane Düzenle"]</h1>
 
-<h4>Hastane</h4>
+<h4>@Localizer["Hastane"]</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">

@@ -1,14 +1,16 @@
 ﻿@model HastaneRandevuSistemi.Models.Hastane
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Hastane Ekle";
+    ViewData["Title"] = Localizer["Hastane Ekle"];
 }
 
 <form asp-action="HastaneEkle">
     <div class="input-group mb-3">
         <input asp-for="HastaneAd" type="text" class="form-control" placeholder="Hastane Adı">
         <div class="input-group-append">
-            <button class="btn btn-outline-primary" type="submit">Ekle</button>
+            <button class="btn btn-outline-primary" type="submit">@Localizer["Ekle"]</button>
         </div>
     </div>
 </form>

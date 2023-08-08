@@ -1,19 +1,20 @@
 ﻿@model IEnumerable<HastaneRandevuSistemi.Models.Doktor>
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = Localizer["Index"];
 }
 
 <h5>@TempData["msj"]</h5>
 <h5>@ViewBag.msj</h5>
-<h4>Doktorlar</h4>
+<h4>@Localizer["Doktorlar"]</h4>
 <table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Adı</th>
-            <th scope="col">Soyadı</th>
+            <th scope="col">@Localizer["Adı"]</th>
+            <th scope="col">@Localizer["Soyadı"]</th>
         </tr> 
     </thead>
     <tbody>
@@ -28,10 +29,10 @@
                 <td>@x.DoktorSoyad</td>
                 <td><a href="/Doktor/DoktorDuzenle/@x.DoktorID" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a></td>
                 <td><a href="/Doktor/DoktorSil/@x.DoktorID" class="btn btn-outline-danger"><i class="bi bi-x"></i></a></td>
-                <td><a href="/Doktor/RandevuGetir/@x.DoktorID" class="btn btn-secondary">Randevular</a></td>
+                <td><a href="/Doktor/RandevuGetir/@x.DoktorID" class="btn btn-secondary">@Localizer["Randevular"]</a></td>
             </tr>
         }
     </tbody>
 </table>
 
-<a href="/Doktor/DoktorEkle" class="btn btn-primary">Yeni Doktor Ekle</a>
+<a href="/Doktor/DoktorEkle" class="btn btn-primary">@Localizer["Yeni Doktor Ekle"]</a>

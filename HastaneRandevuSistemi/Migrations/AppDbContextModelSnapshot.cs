@@ -117,6 +117,9 @@ namespace HastaneRandevuSistemi.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("UserID")
+                        .HasColumnType("nvarchar(max)");
+
                     b.HasKey("RandevuID");
 
                     b.HasIndex("DoktorID");

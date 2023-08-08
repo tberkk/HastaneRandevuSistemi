@@ -1,12 +1,17 @@
 ﻿@model List<Poliklinik>
-
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
+@{
+    ViewData["Title"] = "Poliklinikler";
+    Layout = "~/Views/Shared/_LayoutUser.cshtml";
+}
 
 <h4>@ViewBag.data</h4>
 <table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Poliklinik Adı</th>
+            <th scope="col">@Localizer["Poliklinik Adı"]</th>
         </tr>
     </thead>
     <tbody>
@@ -21,7 +26,7 @@
                     i++;
                 }
                 <td>@x.PoliklinikAd</td>
-                <td><a href="/Home/DoktorGetir/@x.PoliklinikID" class="btn btn-primary">Doktorlar</a></td>
+                <td><a href="/Home/DoktorGetir/@x.PoliklinikID" class="btn btn-primary">@Localizer["Doktorlar"]</a></td>
             </tr>
         }
     </tbody>

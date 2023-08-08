@@ -1,4 +1,6 @@
 ﻿@model IEnumerable<Randevu>
+@using Microsoft.AspNetCore.Mvc.Localization
+@inject IViewLocalizer Localizer
 
 @{
     ViewData["Title"] = "Index";
@@ -6,16 +8,16 @@
 
 <h5>@TempData["msj"]</h5>
 <h5>@ViewBag.msj</h5>
-<h4>Doktorlar</h4>
+<h4>@Localizer["Doktorlar"]</h4>
 <table class="table table-striped">
     <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col">Gün</th>
-            <th scope="col">Saat</th>
-            <th scope="col">Doktor Adı</th>
-            <th scope="col">Poliklinik</th>
-            <th scope="col">Hastane</th>
+            <th scope="col">@Localizer["Gün"]</th>
+            <th scope="col">@Localizer["Saat"]</th>
+            <th scope="col">@Localizer["Doktor Adı"]</th>
+            <th scope="col">@Localizer["Poliklinik"]</th>
+            <th scope="col">@Localizer["Hastane"]</th>
         </tr>
     </thead>
     <tbody>
@@ -42,4 +44,4 @@
     </tbody>
 </table>
 
-<a href="/Randevu/RandevuEkle" class="btn btn-primary">Yeni Randevu Ekle</a>
+<a href="/Randevu/RandevuEkle" class="btn btn-primary">@Localizer["Yeni Randevu Ekle"]</a>
