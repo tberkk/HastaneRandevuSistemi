@@ -14,6 +14,7 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">@Localizer["Poliklinik Adı"]</th>
+            <th scope="col">@Localizer["Hastane"]</th>
         </tr>
     </thead>
     <tbody>
@@ -24,6 +25,7 @@
                 <th>@i</th>
                 @{i++;}
                 <td>@x.PoliklinikAd</td>
+                <td>@x.Hastane.HastaneAd</td>
                 <td><a href="/Poliklinik/PoliklinikDuzenle/@x.PoliklinikID" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a></td>
                 <td><a href="/Poliklinik/PoliklinikSil/@x.PoliklinikID" class="btn btn-outline-danger"><i class="bi bi-x"></i></a></td>
                 <td><a href="/Poliklinik/DoktorGetir/@x.PoliklinikID" class="btn btn-secondary">@Localizer["Doktorlar"]</a></td>

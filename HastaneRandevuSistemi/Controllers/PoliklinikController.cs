@@ -19,7 +19,7 @@ namespace HastaneRandevuSistemi.Controllers
         [Authorize(Roles = "Admin")]
         public IActionResult Index()
         {
-            var list = c.PoliklinikTable.ToList();
+            var list = c.PoliklinikTable.Include(x => x.Hastane).ToList();
             return View(list);
         }
 

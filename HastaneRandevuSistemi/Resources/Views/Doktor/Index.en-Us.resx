@@ -123,8 +123,14 @@
   <data name="Doktorlar" xml:space="preserve">
     <value>Doctors</value>
   </data>
+  <data name="Hastane" xml:space="preserve">
+    <value>Hospital</value>
+  </data>
   <data name="Index" xml:space="preserve">
     <value>Index</value>
+  </data>
+  <data name="Poliklinik" xml:space="preserve">
+    <value>Policlinic</value>
   </data>
   <data name="Randevular" xml:space="preserve">
     <value>Appointments</value>

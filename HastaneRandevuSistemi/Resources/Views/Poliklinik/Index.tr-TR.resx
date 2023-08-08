@@ -120,6 +120,9 @@
   <data name="Doktorlar" xml:space="preserve">
     <value>Doktorlar</value>
   </data>
+  <data name="Hastane" xml:space="preserve">
+    <value>Hastane</value>
+  </data>
   <data name="Poliklinik Adı" xml:space="preserve">
     <value>Poliklinik Adı</value>
   </data>
